@@ -1,0 +1,56 @@
+/* Правки поверх стиля «Продающий» для Milky Pilky: шрифт Unbounded, графитовый первый экран с фото справа, заголовок слева внизу. */
+h1, h2, h3 { font-weight: 500; letter-spacing: -.01em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.15; }
+.s-bar__brand { font-family: var(--f-display); font-weight: 600; font-size: 1rem; letter-spacing: .02em; }
+.s-btn { font-family: var(--f-text); }
+.s-eyebrow, .s-board__title, .s-widget legend, .s-range label, .s-bubble__label { text-transform: none; letter-spacing: .01em; }
+
+/* первый экран */
+body { overflow-x: clip; }
+.mp-hero { position: relative; isolation: isolate; display: grid; align-items: end; min-height: min(86vh, 760px); width: 100vw; margin-left: calc(50% - 50vw); background: #2a2a2e; color: #fff; overflow: hidden; }
+.mp-hero__img { position: absolute; inset: 0 0 0 auto; width: min(56%, 900px); margin: 0; z-index: -1; }
+.mp-hero__img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+.mp-hero__img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #2a2a2e 0%, rgba(42,42,46,.55) 28%, rgba(42,42,46,0) 62%), linear-gradient(0deg, rgba(42,42,46,.7) 0%, rgba(42,42,46,0) 45%); }
+.mp-hero__body { padding: clamp(96px, 14vw, 160px) max(20px, calc(50vw - 552px)) clamp(36px, 6vw, 72px); box-sizing: border-box; width: 100%; display: grid; gap: 18px; justify-items: start; }
+.mp-hero .s-eyebrow { color: #e8b9be; margin: 0; }
+.mp-hero h1 { color: #fff; font-size: clamp(1.9rem, 4.1vw, 3.5rem); line-height: 1.12; max-width: 15em; text-wrap: balance; margin: 0; }
+.mp-hero .s-lead { color: #e7e2e4; max-width: 32em; margin: 0; }
+.mp-hero__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 26px; margin-top: 6px; }
+.mp-hero .s-rating { margin: 0; color: #e7e2e4; }
+.mp-hero .s-rating b { color: #fff; }
+
+.s-hero--widget { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 460px); gap: clamp(28px, 5vw, 64px); align-items: stretch; }
+.s-hero--widget .s-hero__widget { position: static; }
+.mp-widget-intro { display: grid; grid-template-rows: auto auto minmax(0, 1fr); gap: 20px; padding-top: 8px; }
+.mp-widget-intro h2 { margin: 0; }
+.mp-widget-intro__img { margin: 8px 0 0; position: relative; min-height: 320px; border-radius: var(--r); overflow: hidden; }
+.mp-widget-intro__img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.mp-widget-intro__img figcaption { position: absolute; left: 12px; bottom: 12px; padding: 6px 12px; border-radius: 999px; background: rgba(255,253,251,.92); color: var(--c-ink); font-size: .84rem; }
+
+.s-demo--sample { margin: -4px 0 14px; padding: 8px 12px; border-radius: 10px; background: color-mix(in srgb, var(--c-accent) 10%, var(--c-surface)); font-size: .82rem; line-height: 1.4; color: var(--c-ink); }
+
+.mp-works__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(10px, 1.6vw, 20px); }
+.mp-works__grid figure { margin: 0; aspect-ratio: 3 / 4; overflow: hidden; border-radius: var(--r); }
+.mp-works__grid img { width: 100%; height: 100%; object-fit: cover; }
+.mp-works__grid figure:nth-child(even) { margin-top: clamp(12px, 3vw, 36px); }
+
+.s-find__grid { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: clamp(22px, 4vw, 52px); align-items: center; }
+.s-find__grid figure { margin: 0; }
+.s-find__grid img { width: 100%; max-height: 520px; object-fit: cover; object-position: 50% 40%; border-radius: var(--r); border: 1px solid var(--hair); }
+.s-find__text { display: grid; gap: 14px; justify-items: start; }
+.s-find__addr { font: 500 1.4rem/1.25 var(--f-display); }
+.s-find__text p { max-width: 36em; }
+
+@media (max-width: 900px) {
+  .mp-hero { min-height: 82vh; }
+  .mp-hero__img { inset: 0; width: 100%; }
+  .mp-hero__img::after { background: linear-gradient(0deg, #2a2a2e 6%, rgba(42,42,46,.78) 42%, rgba(42,42,46,.15) 100%); }
+  .mp-hero__body { padding-top: 120px; }
+  .s-hero--widget { grid-template-columns: 1fr; }
+  .mp-widget-intro__img { display: none; }
+}
+@media (max-width: 760px) {
+  .mp-works__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .s-find__grid { grid-template-columns: 1fr; }
+  .s-find__grid img { max-height: 420px; }
+}
